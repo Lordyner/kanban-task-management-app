@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
 export const StyledThemeSwitch = styled.label`
+
+  
+    background-color: ${({ theme }) => theme.colors.primary};
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    background-color: ${({ theme }) => theme.colors.grey200};
     padding: 1rem 0 1rem 0;
     margin-left: 1rem;
     border-radius: 6px;
-
-
+ 
   /* The switch - the box around the slider */
   .switch {
     position: relative;
@@ -17,6 +18,7 @@ export const StyledThemeSwitch = styled.label`
     width: 40px;
     height: 20px;
   }
+ 
 
   /* Hide default HTML checkbox */
   .switch input {

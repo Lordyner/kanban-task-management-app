@@ -48,7 +48,6 @@ body {
 
 
 `
-
 export const lightTheme = {
   body: '#F4F7FD',
   text: '#000112',
@@ -64,8 +63,11 @@ export const lightTheme = {
     grey300: 'hsl(221, 69%, 94%)',
     grey200: 'hsl(220, 69%, 97%)',
     purple400: 'hsl(242, 48%, 58%)',
-    purple300: 'hsl(243, 100%, 82%)'
-  }
+    purple300: 'hsl(243, 100%, 82%)',
+    primary: '#F4F7FD',
+    secondary: '#fff'
+  },
+
 }
 export const darkTheme = {
   body: '#20212C',
@@ -82,6 +84,8 @@ export const darkTheme = {
     grey300: 'hsl(221, 69%, 94%)',
     grey200: 'hsl(220, 69%, 97%)',
     purple400: 'hsl(242, 48%, 58%)',
-    purple300: 'hsl(243, 100%, 82%)'
+    purple300: 'hsl(243, 100%, 82%)',
+    primary: '#20212C',
+    secondary: '#2B2C37'
   }
 }

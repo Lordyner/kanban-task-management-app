@@ -106,17 +106,6 @@
       transition: display 10.3s;
     }
 
-    .title-board-list {
-      color: variables.$grey-400;
-      letter-spacing: 2.4px;
-      padding: 0rem 0 0 1.5rem;
-      margin-bottom: 19px;
-    }
-
-    .board-list-content {
-      display: flex;
-      flex-direction: column;
-    }
 
     .board-element {
       color: variables.$grey-400;

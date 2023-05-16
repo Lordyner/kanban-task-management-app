@@ -3,8 +3,7 @@ import { useState } from 'react';
 import BoardElement from './BoardElement';
 import iconBoard from './images/icon-board.svg';
 import ThemeSwitch from './InteractiveComponents/ThemeSwitch';
-import logoDark from './images/icon-light-theme.svg';
-import logoLight from './images/icon-dark-theme.svg';
+import { StyledBoardList } from './components/styled/BoardList.styled';
 import { useEffect } from 'react';
 
 const BoardList = ({ boards }) => {
@@ -22,7 +21,7 @@ const BoardList = ({ boards }) => {
 
     return (
 
-        <div>
+        <StyledBoardList>
             <span className='d-block title-board-list body-m'>ALL BOARDS ({boards.length})</span>
             <div className="board-list-content">
                 {boards.map((board, index) => {
@@ -30,17 +29,12 @@ const BoardList = ({ boards }) => {
                 })}
                 <div className='board-element create-new-board heading-m'>
                     <img src={iconBoard} alt='' />
+
                     <span>+ Create new board</span>
                 </div>
-                <div className='themeSwitch'>
-                    <img src={logoDark} alt=''></img>
-                    <ThemeSwitch />
-                    <img src={logoLight} alt=''></img>
-                </div>
-
-
+                <ThemeSwitch />
             </div>
-        </div>
+        </StyledBoardList>
 
     );
 };
