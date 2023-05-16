@@ -1,0 +1,37 @@
+/* Colors */
+$purple-400: hsl(242, 48%, 58%);
+$purple-300: hsl(243, 100%, 82%);
+
+$black-400: hsl(237, 100%, 4%);
+$black-300: hsl(235, 16%, 15%);
+$black-200: hsl(235, 12%, 19%);
+$black-100: hsl(236, 11%, 27%);
+
+$grey-400: hsl(216, 15%, 57%);
+$grey-300: hsl(221, 69%, 94%);
+$grey-200: hsl(220, 69%, 97%); //F4F7FD
+
+$white-400: hsl(0, 0%, 100%);
+
+$red-400: hsl(0, 78%, 63%);
+$red-300: hsl(0, 100%, 80%);
+
+/* Fonts */
+@font-face {
+  font-family: PlusJakartaSans;
+  src: url('../public/fonts/static/PlusJakartaSans-Medium.ttf');
+}
+
+$heading-500 : 1.5rem;
+$heading-400 : 1.125rem;
+$heading-300 : 0.938rem;
+$heading-200 : 0.75rem;
+
+$body-500 : 0.813rem;
+$body-400 : 0.75rem;
+
+/* Breakpoints */
+
+$desktop: 1440px;
+$tablet: 768px;
+$mobile: 375px;
