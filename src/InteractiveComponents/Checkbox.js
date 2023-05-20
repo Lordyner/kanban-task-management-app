@@ -6,7 +6,6 @@ const Checkbox = ({ subtask }) => {
 
     const [isChecked, setIsChecked] = useState(subtask.isCompleted)
 
-
     return (
         <StyledCheckbox className={isChecked ? 'checked' : ''} onClick={() => {
             setIsChecked(!isChecked)

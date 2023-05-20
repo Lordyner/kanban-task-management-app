@@ -1,7 +1,15 @@
 import styled from "styled-components";
 
 export const StyledCheckbox = styled.div`
-    
+    display: flex;
+    align-items: center;
+    background-color: ${({ theme }) => theme.colors.primary};
+    border-radius: 4px;
+    color: ${({ theme }) => theme.text};
+    padding: 13px 8px 16px 13px;
+    align-items: center;
+    font-weight: 700;
+    cursor: pointer;
 
     font-size: 12px;
     &:hover {
@@ -25,7 +33,6 @@ export const StyledCheckbox = styled.div`
         -ms-user-select: none;
         user-select: none;
         width: fit-content;
-        
         &:hover {
             cursor: pointer;
         }
