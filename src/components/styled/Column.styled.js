@@ -6,6 +6,7 @@ export const StyleColumn = styled.div`
     flex-direction: column;
     gap: 1rem;
     width: 70%;
+    //z-index: -1;
     
     .column-name {
         color: ${({ theme }) => theme.colors.grey400};

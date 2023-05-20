@@ -1,12 +1,10 @@
 import React from 'react';
-
+import Checkbox from './InteractiveComponents/Checkbox';
 const Subtask = ({ subtask }) => {
+
+
     return (
-        <div>
-            toto
-            <input type='checkbox' checked={subtask.isCompleted}></input>
-            {subtask.title}
-        </div>
+        <Checkbox subtask={subtask}></Checkbox>
     );
 };
 

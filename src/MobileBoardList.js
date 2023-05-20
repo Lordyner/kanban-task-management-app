@@ -21,8 +21,12 @@ const MobileBoardList = () => {
 
                 {boardListOpened ? <img src={chevronUp} alt='' /> : <img src={chevronDown} alt='' />}
             </div>
-            <div className={boardListOpened ? 'popup-board-list' : 'popup-board-list hidden'}>
-                <BoardList />
+            <div className={boardListOpened ? 'dark-filter' : ''}>
+                <div className={boardListOpened ? 'popup-board-list' : 'popup-board-list hidden'}>
+
+                    <BoardList />
+                </div>
+
             </div>
         </StyleMobileBoardList>
     );

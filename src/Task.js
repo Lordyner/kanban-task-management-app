@@ -5,17 +5,18 @@ import useData from './Hooks/useData';
 
 const Task = ({ task }) => {
 
-    const [popupOpen, setPopupOpen] = useState(false);
+    const { popupOpen, setPopupOpen } = useData();
+    const { selectedTask, setSelectedTask } = useData();
+    // const [popupOpen, setPopupOpen] = useState(false);
     const { backgroundFilter, setBackgroundFilter } = useData();
 
     return (
         <StyleTask onClick={() => {
             setPopupOpen(!popupOpen);
-            setBackgroundFilter(!backgroundFilter)
+            setBackgroundFilter(!backgroundFilter);
+            setSelectedTask(task);
         }}>
-            <div className={popupOpen ? 'popup-task' : 'popup-task hidden'}>
-                <TaskDetails task={task} />
-            </div>
+
             <div className='task-content' key={task.title} >
                 <span className='task-title'>{task.title}</span>
                 <span>{task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length} subtasks</span>

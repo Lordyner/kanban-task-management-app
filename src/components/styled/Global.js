@@ -9,8 +9,56 @@ body {
       src: url('../public/fonts/static/PlusJakartaSans-Medium.ttf');
     }
     font-family: PlusJakartaSans;
+    
 }
-
+.dark-filter {
+  position: fixed;
+  left: 0;
+  top: ${({ theme }) => theme.header.minHeight};
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+}
+.full-dark-filter {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: background-color 0.3s;
+}
+.main-container {
+  background-color: ${({ theme }) => theme.colors.primary};
+  padding: 1rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  min-width: 750px;
+  gap: 2rem;
+  padding-top: 5rem;
+  
+}
+.popup-task {
+  background-color: ${({ theme }) => theme.colors.secondary};
+  min-width: 343px;
+  max-width: 343px;
+  min-height: 560px;
+  position: absolute;
+  top: 5rem;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: display 10.3s;
+}
 
   .empty-board {
     font-family: PlusJakartaSans;
@@ -46,17 +94,7 @@ body {
     }
   }
 
-  .main-container {
-    background-color: ${({ theme }) => theme.colors.grey200};
-    padding: 1rem;
-    height: 100vh;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    min-width: 750px;
-    gap: 2rem;
-    padding-top: 5rem;
-  }
+  
 
 
 `
@@ -68,10 +106,11 @@ export const lightTheme = {
     fontColor: ''
   },
   header: {
-    background: '#fff'
+    background: '#fff',
+    minHeight: '4rem'
   },
   colors: {
-    grey400: 'hsl(216, 15%, 57%)',
+    grey400: 'hsl(216, 15%, 57%)', // #828FA33F
     grey300: 'hsl(221, 69%, 94%)',
     grey200: 'hsl(220, 69%, 97%)',
     purple400: 'hsl(242, 48%, 58%)',
@@ -87,6 +126,8 @@ export const lightTheme = {
   body500: '0.813rem',
   body400: '0.75rem'
 
+
+
 }
 export const darkTheme = {
   body: '#20212C',
@@ -96,12 +137,13 @@ export const darkTheme = {
     fontColor: ''
   },
   header: {
-    background: '#2B2C37'
+    background: '#2B2C37',
+    minHeight: '4rem'
   },
   colors: {
     grey400: 'hsl(216, 15%, 57%)', // #828FA3
     grey300: 'hsl(221, 69%, 94%)',
-    grey200: 'hsl(220, 69%, 97%)',
+    grey200: 'hsl(220, 69%, 97%)', // #F4F7FD
     purple400: 'hsl(242, 48%, 58%)',
     purple300: 'hsl(243, 100%, 82%)',
     primary: '#20212C',

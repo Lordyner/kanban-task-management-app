@@ -7,6 +7,7 @@ import useData from './Hooks/useData';
 import Button from './InteractiveComponents/Button';
 import addTaskIcon from './images/icon-add-task-mobile.svg';
 import Column from './Column';
+import TaskDetails from './Popup/TaskDetails';
 
 
 const Board = () => {
@@ -15,9 +16,10 @@ const Board = () => {
     const { boards, setBoards } = useData();
     const [loading, setLoading] = useState();
     const { selectedBoard, setSelectedBoard } = useData();
+    const { selectedTask } = useData();
     const { backgroundFilter } = useData();
     // console.log(boards)
-
+    const { popupOpen, setPopupOpen } = useData();
     useEffect(() => {
         const fetchBoards = (e) => {
             setLoading(true);
@@ -48,7 +50,8 @@ const Board = () => {
             {!loading && boards &&
                 <>
                     <Header />
-                    <main className={backgroundFilter ? 'main-container dark-filter' : 'main-container'}>
+                    <main className='main-container'>
+
                         {selectedBoard && selectedBoard.columns && selectedBoard.columns.length &&
 
                             selectedBoard.columns.map((column, index) => {
@@ -63,6 +66,12 @@ const Board = () => {
                         }
 
                     </main>
+                    {/* Pop-up */}
+                    <div className={popupOpen ? 'full-dark-filter' : ''} onClick={() => setPopupOpen(!popupOpen)}>
+                        <div className={popupOpen ? 'popup-task' : 'popup-task hidden'} onClick={(e) => e.stopPropagation()}>
+                            {selectedTask && <TaskDetails task={selectedTask} />}
+                        </div>
+                    </div>
                 </>
             }
         </>

@@ -12,10 +12,11 @@ export const StyleMobileBoardList = styled.div`
     min-width: 16.5rem;
     min-height: 20.125rem;
     position: absolute;
-    top: 5rem;
+    top: 1rem;
     left: 4rem;
     border-radius: 8px;
     padding: 1.5rem 1.5rem 1.5rem 0;
     transition: display 10.3s;
+    z-index: 100;
   }
 `;

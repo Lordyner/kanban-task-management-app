@@ -17,4 +17,9 @@ export const TaskDetailsStyle = styled.div`
         color:  ${({ theme }) => theme.colors.grey400};
         line-height: 23px;
     }
+    .subtasks-title {
+        color: ${({ theme }) => theme.colors.grey400};
+        font-size: 12px;
+        font-weight: 700;
+    }
 `;

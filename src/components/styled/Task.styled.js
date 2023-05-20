@@ -11,20 +11,6 @@ export const StyleTask = styled.div`
     height: 88px;   
     justify-content: center;
 
-    .popup-task {
-        background-color: ${({ theme }) => theme.colors.secondary};
-        min-width: 343px;
-        max-width: 343px;
-        min-height: 560px;
-        position: absolute;
-        top: 10rem;
-        border-radius: 8px;
-        padding: 1.5rem;
-        transition: display 10.3s;
-
-       
-
-    }
     
     .task-content {
         display: flex;

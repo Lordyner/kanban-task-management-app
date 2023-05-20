@@ -8,8 +8,8 @@ function App() {
 
     const { theme, setTheme } = useData();
     const isDarkTheme = theme === "dark";
-
     return (
+
         <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
             <GlobalStyles />
             <Board />
