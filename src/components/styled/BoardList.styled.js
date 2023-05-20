@@ -24,10 +24,17 @@ export const StyledBoardList = styled.div`
           color: #fff;
           background-color: ${({ theme }) => theme.colors.purple400};
           border-radius: 0 100px 100px 0;
+          img {
+            filter: brightness(0) saturate(100%) invert(100%) sepia(88%) saturate(0%) hue-rotate(266deg) brightness(109%) contrast(101%);
+          }
+          
         }
   
         &.create-new-board {
-          color: variables.$purple-400;
+          color: ${({ theme }) => theme.colors.purple400};
+          img {
+            filter: brightness(0) saturate(100%) invert(23%) sepia(17%) saturate(6257%) hue-rotate(225deg) brightness(89%) contrast(98%);
+          }
         }
     }
 `;

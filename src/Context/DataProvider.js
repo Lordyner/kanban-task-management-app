@@ -3,21 +3,20 @@ const DataContext = createContext({});
 
 export const DataProvider = ({ children }) => {
 
-    const [nbTokenPlayerTwo, setNbTokenPlayerTwo] = useState();
     const [boardListOpened, setBoardListOpened] = useState(false);
     const [theme, setTheme] = useState("light");
-    const getWindowSize = () => {
-        const { innerWidth, innerHeight } = window;
-        return { innerWidth, innerHeight };
-    }
+    const [selectedBoard, setSelectedBoard] = useState();
+    const [boards, setBoards] = useState();
+    const [backgroundFilter, setBackgroundFilter] = useState(false);
 
 
     return (
         <DataContext.Provider value={{
-            nbTokenPlayerTwo, setNbTokenPlayerTwo,
-            getWindowSize,
             boardListOpened, setBoardListOpened,
-            theme, setTheme
+            selectedBoard, setSelectedBoard,
+            theme, setTheme,
+            boards, setBoards,
+            backgroundFilter, setBackgroundFilter
         }}>
             {children}
         </DataContext.Provider>

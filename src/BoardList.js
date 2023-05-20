@@ -5,19 +5,21 @@ import iconBoard from './images/icon-board.svg';
 import ThemeSwitch from './InteractiveComponents/ThemeSwitch';
 import { StyledBoardList } from './components/styled/BoardList.styled';
 import { useEffect } from 'react';
+import useData from './Hooks/useData';
 
-const BoardList = ({ boards }) => {
+const BoardList = () => {
 
     const [boardElementSelected, setBoardElementSelected] = useState();
+    const { boards, setBoards } = useData();
 
-    let [boardList, setBoardList] = useState([]);
+    let [boardList, setBoardList] = useState();
 
-    useEffect(() => {
-        boards.map((board, index) => {
-            if (index === 0) setBoardList([...boardList, true]);
-            else setBoardList([...boardList, false]);
-        })
-    }, [])
+    // useEffect(({ boards }) => {
+    //     boards.map((board, index) => {
+    //         if (index === 0) setBoardList([...boardList, true]);
+    //         else setBoardList([...boardList, false]);
+    //     })
+    // }, [])
 
     return (
 
@@ -29,7 +31,6 @@ const BoardList = ({ boards }) => {
                 })}
                 <div className='board-element create-new-board heading-m'>
                     <img src={iconBoard} alt='' />
-
                     <span>+ Create new board</span>
                 </div>
                 <ThemeSwitch />
