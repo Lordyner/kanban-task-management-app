@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import chevronUp from './images/icon-chevron-up.svg';
-import chevronDown from './images/icon-chevron-down.svg';
+import chevronUp from '../images/icon-chevron-up.svg';
+import chevronDown from '../images/icon-chevron-down.svg';
 import BoardList from './BoardList';
-import useData from './Hooks/useData';
-import { StyleMobileBoardList } from './components/styled/MobileBoardList.styled';
+import useData from '../Hooks/useData';
+import { StyleMobileBoardList } from './styled/MobileBoardList.styled';
 const MobileBoardList = () => {
 
     const { boardListOpened, setBoardListOpened } = useData();

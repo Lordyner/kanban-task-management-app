@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { StyleTask } from './components/styled/Task.styled';
-import TaskDetails from './Popup/TaskDetails';
-import useData from './Hooks/useData';
+import { StyleTask } from './styled/Task.styled';
+import TaskDetails from '../Popup/TaskDetails';
+import useData from '../Hooks/useData';
 
 const Task = ({ task }) => {
 

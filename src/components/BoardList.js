@@ -1,11 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import BoardElement from './BoardElement';
-import iconBoard from './images/icon-board.svg';
-import ThemeSwitch from './InteractiveComponents/ThemeSwitch';
-import { StyledBoardList } from './components/styled/BoardList.styled';
+import iconBoard from '../images/icon-board.svg';
+import ThemeSwitch from '../InteractiveComponents/ThemeSwitch';
+import { StyledBoardList } from './styled/BoardList.styled';
 import { useEffect } from 'react';
-import useData from './Hooks/useData';
+import useData from '../Hooks/useData';
 
 const BoardList = () => {
 

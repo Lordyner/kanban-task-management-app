@@ -1,6 +1,6 @@
 import React from 'react';
 import Task from './Task';
-import { StyleColumn } from './components/styled/Column.styled';
+import { StyleColumn } from './styled/Column.styled';
 
 const Column = ({ column }) => {
     return (

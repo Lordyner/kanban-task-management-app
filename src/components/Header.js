@@ -1,12 +1,12 @@
 import { React, useState } from 'react';
-import logoMobile from './images/logo-mobile.svg';
-import addTaskIcon from './images/icon-add-task-mobile.svg';
-import verticalElipsis from './images/icon-vertical-ellipsis.svg';
+import logoMobile from '../images/logo-mobile.svg';
+import addTaskIcon from '../images/icon-add-task-mobile.svg';
+import verticalElipsis from '../images/icon-vertical-ellipsis.svg';
 import MobileBoardList from './MobileBoardList';
-import StyledButton from './InteractiveComponents/Button';
-import { StyledHeader } from './components/styled/Header.styled';
-import { useWindowSize } from './Hooks/useWindowSize';
-import useData from './Hooks/useData';
+import StyledButton from '../InteractiveComponents/Button';
+import { StyledHeader } from './styled/Header.styled';
+import { useWindowSize } from '../Hooks/useWindowSize';
+import useData from '../Hooks/useData';
 const Header = () => {
 
     const { width, height } = useWindowSize();

@@ -1,5 +1,5 @@
 import React from 'react';
-import Checkbox from './InteractiveComponents/Checkbox';
+import Checkbox from '../InteractiveComponents/Checkbox';
 const Subtask = ({ subtask }) => {
 
 

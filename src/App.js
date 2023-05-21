@@ -1,4 +1,4 @@
-import Board from './Board';
+import Board from './components/Board';
 import './index.scss';
 import { ThemeProvider } from 'styled-components';
 import useData from './Hooks/useData';

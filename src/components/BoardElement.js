@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
-import iconBoard from './images/icon-board.svg';
-import useData from './Hooks/useData';
+import iconBoard from '../images/icon-board.svg';
+import useData from '../Hooks/useData';
 
 
 const BoardElement = ({ board, linkList }) => {

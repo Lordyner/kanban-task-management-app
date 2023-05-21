@@ -1,13 +1,13 @@
 import React from 'react';
 import { useState } from 'react';
 import Header from './Header';
-import data from './data.json';
+import data from '../data.json';
 import { useEffect } from 'react';
-import useData from './Hooks/useData';
-import Button from './InteractiveComponents/Button';
-import addTaskIcon from './images/icon-add-task-mobile.svg';
+import useData from '../Hooks/useData';
+import Button from '../InteractiveComponents/Button';
+import addTaskIcon from '../images/icon-add-task-mobile.svg';
 import Column from './Column';
-import TaskDetails from './Popup/TaskDetails';
+import TaskDetails from '../Popup/TaskDetails';
 
 
 const Board = () => {
