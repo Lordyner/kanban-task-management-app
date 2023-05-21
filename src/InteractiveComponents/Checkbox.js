@@ -7,14 +7,18 @@ const Checkbox = ({ subtask }) => {
     const [isChecked, setIsChecked] = useState(subtask.isCompleted)
 
     return (
-        <StyledCheckbox className={isChecked ? 'checked' : ''} onClick={() => {
+        <StyledCheckbox className={isChecked ? 'checked' : ''} onChange={() => {
             setIsChecked(!isChecked)
             subtask.isCompleted = !isChecked;
         }}>
             <label className='check-container'>
                 <span className='checkbox-text'>{subtask.title}</span>
                 <input type='checkbox'
-                    checked={isChecked} />
+                    checked={isChecked}
+                    onClick={() => {
+                        setIsChecked(!isChecked)
+                        subtask.isCompleted = !isChecked;
+                    }} />
                 <span className='checkmark'></span>
             </label>
         </StyledCheckbox>

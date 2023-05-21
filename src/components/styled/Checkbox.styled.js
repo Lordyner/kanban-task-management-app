@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledCheckbox = styled.div`
+export const StyledCheckbox = styled.label`
     display: flex;
     align-items: center;
     background-color: ${({ theme }) => theme.colors.primary};
