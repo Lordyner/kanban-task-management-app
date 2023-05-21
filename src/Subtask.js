@@ -4,7 +4,7 @@ const Subtask = ({ subtask }) => {
 
 
     return (
-        <Checkbox subtask={subtask}></Checkbox>
+        <Checkbox label={subtask.title} checked={subtask.isCompleted}></Checkbox>
     );
 };
 

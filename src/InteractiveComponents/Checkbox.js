@@ -1,23 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
 import { StyledCheckbox } from '../components/styled/Checkbox.styled';
+import useData from '../Hooks/useData';
 
-const Checkbox = ({ subtask }) => {
+const Checkbox = ({ label, checked }) => {
 
-    const [isChecked, setIsChecked] = useState(subtask.isCompleted)
-
+    const [isChecked, setIsChecked] = useState(checked);
+    const { boards, setBoards } = useData();
+    const { selectedBoard } = useData();
     return (
-        <StyledCheckbox className={isChecked ? 'checked' : ''} onChange={() => {
-            setIsChecked(!isChecked)
-            subtask.isCompleted = !isChecked;
-        }}>
+        <StyledCheckbox className={isChecked ? 'checked' : ''} >
             <label className='check-container'>
-                <span className='checkbox-text'>{subtask.title}</span>
+                <span className='checkbox-text'>{label}</span>
                 <input type='checkbox'
                     checked={isChecked}
                     onClick={() => {
                         setIsChecked(!isChecked)
-                        subtask.isCompleted = !isChecked;
+
                     }} />
                 <span className='checkmark'></span>
             </label>
