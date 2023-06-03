@@ -23,7 +23,6 @@ const MobileBoardList = () => {
             </div>
             <div className={boardListOpened ? 'dark-filter' : ''}>
                 <div className={boardListOpened ? 'popup-board-list' : 'popup-board-list hidden'}>
-
                     <BoardList />
                 </div>
 

@@ -11,15 +11,15 @@ const Task = ({ task }) => {
     const { backgroundFilter, setBackgroundFilter } = useData();
 
     return (
-        <StyleTask onClick={() => {
+        <StyleTask key={task.id} onClick={() => {
             setPopupOpen(!popupOpen);
             setBackgroundFilter(!backgroundFilter);
             setSelectedTask(task);
         }}>
 
-            <div className='task-content' key={task.title} >
+            <div className='task-content' key={task.id} >
                 <span className='task-title'>{task.title}</span>
-                <span>{task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length} subtasks</span>
+                {/* <span>{task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length} subtasks</span> */}
             </div>
 
         </StyleTask>

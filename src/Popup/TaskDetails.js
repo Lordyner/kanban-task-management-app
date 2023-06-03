@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TaskDetailsStyle } from '../components/styled/TaskDetails.styled';
 import verticalElipsis from '../images/icon-vertical-ellipsis.svg';
 import Subtask from '../components/Subtask';
 
 const TaskDetails = ({ task }) => {
+
     return (
         <TaskDetailsStyle>
             <div className='popup-task-title'>

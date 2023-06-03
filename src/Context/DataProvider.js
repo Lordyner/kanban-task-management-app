@@ -7,7 +7,7 @@ export const DataProvider = ({ children }) => {
     const [theme, setTheme] = useState("light");
     const [selectedBoard, setSelectedBoard] = useState();
     const [selectedTask, setSelectedTask] = useState();
-    const [boards, setBoards] = useState();
+    const [boards, setBoards] = useState([{}]);
     const [backgroundFilter, setBackgroundFilter] = useState(false);
     const [popupOpen, setPopupOpen] = useState(false);
 

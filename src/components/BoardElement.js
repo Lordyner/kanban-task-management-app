@@ -10,8 +10,8 @@ const BoardElement = ({ board, linkList }) => {
     const { selectedBoard, setSelectedBoard } = useData();
 
     return (
-        <div>
-            <div key={board.name} onClick={() => setSelectedBoard(board)} className={selectedBoard === board ? 'board-element selected heading-m' : 'board-element heading-m'}>
+        <div key={board.id}>
+            <div key={board.id} onClick={() => setSelectedBoard(board)} className={selectedBoard === board ? 'board-element selected heading-m' : 'board-element heading-m'}>
                 <img src={iconBoard} alt='' />
                 <span>{board.name}</span>
             </div>
