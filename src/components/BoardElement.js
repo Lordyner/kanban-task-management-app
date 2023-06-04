@@ -1,13 +1,11 @@
 import React from 'react';
-import { useState } from 'react';
 import iconBoard from '../images/icon-board.svg';
-import useData from '../Hooks/useData';
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
+const BoardElement = ({ board }) => {
 
-const BoardElement = ({ board, linkList }) => {
-
-    const [selected, setSelected] = useState(false);
-    const { selectedBoard, setSelectedBoard } = useData();
+    const selectedBoard = useStoreState(state => state.selectedBoard);
+    const setSelectedBoard = useStoreActions(actions => actions.setSelectedBoard);
 
     return (
         <div key={board.id}>

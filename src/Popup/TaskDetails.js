@@ -14,10 +14,13 @@ const TaskDetails = ({ task }) => {
             <div className='popup-task-content'>
                 {task.description}
             </div>
-            <span className='subtasks-title'>
-                Subtasks ({task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length})
-            </span>
-            {task.subtasks.map((subtask, index) => {
+            {task.subtasks &&
+                <span className='subtasks-title'>
+                    Subtasks ({task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length})
+                </span>
+            }
+
+            {task.subtasks && task.subtasks.map((subtask, index) => {
                 return (<Subtask subtask={subtask} key={subtask.title} />)
             })}
 

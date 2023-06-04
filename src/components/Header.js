@@ -6,12 +6,13 @@ import MobileBoardList from './MobileBoardList';
 import StyledButton from '../InteractiveComponents/Button';
 import { StyledHeader } from './styled/Header.styled';
 import { useWindowSize } from '../Hooks/useWindowSize';
-import useData from '../Hooks/useData';
+import { useStoreState } from 'easy-peasy';
 const Header = () => {
 
-    const { width, height } = useWindowSize();
-    const { boards, setBoards } = useData();
-    const { selectedBoard } = useData();
+    const { width } = useWindowSize();
+
+    const selectedBoard = useStoreState(state => state.selectedBoard);
+
     return (
 
         <StyledHeader>

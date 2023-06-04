@@ -1,71 +1,25 @@
 import React from 'react';
-import { useState } from 'react';
 import Header from './Header';
-import { useEffect } from 'react';
-import useData from '../Hooks/useData';
 import Button from '../InteractiveComponents/Button';
 import addTaskIcon from '../images/icon-add-task-mobile.svg';
 import Column from './Column';
 import TaskDetails from '../Popup/TaskDetails';
-import { axiosPrivate } from '../api/axios';
-const Board = () => {
-
-    // const [boards, setBoards] = useState();
-    const { boards, setBoards } = useData();
-    const [loading, setLoading] = useState();
-    const { selectedBoard, setSelectedBoard } = useData();
-    const { selectedTask } = useData();
-    const { backgroundFilter } = useData();
-    const { popupOpen, setPopupOpen } = useData();
-
-    const fetchBoards = async () => {
-        try {
-            const response = await axiosPrivate.get('/boards', {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                },
-                responseType: 'json',
-                withCredentials: true
-            });
-            console.log(response.data);
-            setBoards(response.data);
-            setSelectedBoard(response.data[0])
-        } catch (err) {
-            if (err.code === "ERR_NETWORK") {
-                console.log('An error occured')
-            } else {
-                console.log(err?.response?.data?.message);
-            }
-        }
-    }
-
-    const updateTask = async () => {
-        try {
-            const response = await axiosPrivate.patch('/tasks/task', {
-                id: selectedTask.id,
-                title: selectedTask.title,
-                description: selectedTask.description,
-                status: selectedTask.status,
-                subtasks: selectedTask.subtasks,
-
-            })
-            if (response?.status !== 204 || response?.status !== 200) {
-                //TODO send error
-            }
-        } catch (err) { }
-    }
+import { useStoreActions, useStoreState } from 'easy-peasy';
 
 
+const Board = ({ isLoading }) => {
 
-    useEffect(() => {
-        fetchBoards();
-    }, []);
+    const boards = useStoreState(state => state.boards);
+    const selectedBoard = useStoreState(state => state.selectedBoard);
+    const selectedTask = useStoreState(state => state.selectedTask);
+    const popupOpen = useStoreState(state => state.popupOpen);
+    const setPopupOpen = useStoreActions(actions => actions.setPopupOpen);
+    const updateTask = useStoreActions(actions => actions.updateTask);
 
     return (
         <>
-            {loading && <p>Chargement en cours</p>}
-            {!loading && boards &&
+            {isLoading && <p>Chargement en cours..</p>}
+            {!isLoading && boards &&
                 <>
                     <Header />
                     <main className='main-container'>

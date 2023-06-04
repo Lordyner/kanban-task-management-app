@@ -1,12 +1,13 @@
 import React from 'react';
-import useData from '../Hooks/useData';
 import { StyledThemeSwitch } from '../components/styled/ThemeSwitch.styled';
 import logoDark from '../images/icon-light-theme.svg';
 import logoLight from '../images/icon-dark-theme.svg';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 
 const ThemeSwitch = () => {
 
-    const { theme, setTheme } = useData();
+    const theme = useStoreState(state => state.theme);
+    const setTheme = useStoreActions(actions => actions.setTheme);
     const isDarkTheme = theme === "dark";
     const toggleTheme = () => setTheme(isDarkTheme ? "light" : "dark");
     return (

@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import chevronUp from '../images/icon-chevron-up.svg';
 import chevronDown from '../images/icon-chevron-down.svg';
 import BoardList from './BoardList';
-import useData from '../Hooks/useData';
 import { StyleMobileBoardList } from './styled/MobileBoardList.styled';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 const MobileBoardList = () => {
 
-    const { boardListOpened, setBoardListOpened } = useData();
-    const { backgroundFilter, setBackgroundFilter } = useData();
-    const { selectedBoard, setSelectedBoard } = useData();
-    const { boards, setBoards } = useData();
+    const boardListOpened = useStoreState(state => state.boardListOpened);
+    const setBoardListOpened = useStoreActions(actions => actions.boardListOpened);
+    const backgroundFilter = useStoreState(state => state.backgroundFilter);
+    const setBackgroundFilter = useStoreActions(actions => actions.setBackgroundFilter);
+    const selectedBoard = useStoreState(state => state.selectedBoard);
+
+
     return (
         <StyleMobileBoardList>
             <div className='mobile-board-list' onClick={() => {
