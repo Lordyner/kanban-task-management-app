@@ -13,7 +13,7 @@ export default createStore({
     }),
     boardListOpened: false,
     setBoardListOpened: action((state, payload) => {
-        state.boardListOpened = payload
+        state.boardListOpened = payload;
     }),
     backgroundFilter: false,
     setBackgroundFilter: action((state, payload) => {
@@ -31,6 +31,7 @@ export default createStore({
     setSelectedTask: action((state, payload) => {
         state.selectedTask = payload;
     }),
+
     fetchBoards: thunk(async (actions, helpers) => {
         try {
             const response = await axiosPrivate.get('/boards', {
@@ -41,7 +42,6 @@ export default createStore({
                 responseType: 'json',
                 withCredentials: true
             });
-            console.log(response.data);
             actions.setBoards(response.data);
             actions.setSelectedBoard(response.data[0]);
         } catch (err) {
@@ -52,8 +52,11 @@ export default createStore({
             }
         }
     }),
-    updateTask: thunk(async (actions, selectedTask, helpers) => {
+
+    updateTask: thunk(async (actions, payload, helpers) => {
         try {
+            const { selectedTask } = helpers.getState();
+
             const response = await axiosPrivate.patch('/tasks/task', {
                 id: selectedTask.id,
                 title: selectedTask.title,
@@ -66,6 +69,17 @@ export default createStore({
                 //TODO send error
 
             }
-        } catch (err) { }
+        } catch (err) {
+            console.log(err);
+        } finally {
+            console.log("task updated");
+        }
+    }),
+
+    updateSubtask: thunk(async (actions, { id, completed, label }, helpers) => {
+        const { selectedTask } = helpers.getState();
+        const indexSubtaskToUpdate = selectedTask.subtasks.findIndex(subtask => subtask.id === id);
+        selectedTask.subtasks[indexSubtaskToUpdate] = { id: id, completed: completed, title: label };
+        actions.setSelectedTask(selectedTask);
     })
 });

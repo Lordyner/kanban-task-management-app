@@ -7,7 +7,7 @@ import { useStoreActions, useStoreState } from 'easy-peasy';
 const MobileBoardList = () => {
 
     const boardListOpened = useStoreState(state => state.boardListOpened);
-    const setBoardListOpened = useStoreActions(actions => actions.boardListOpened);
+    const setBoardListOpened = useStoreActions(actions => actions.setBoardListOpened);
     const backgroundFilter = useStoreState(state => state.backgroundFilter);
     const setBackgroundFilter = useStoreActions(actions => actions.setBackgroundFilter);
     const selectedBoard = useStoreState(state => state.selectedBoard);

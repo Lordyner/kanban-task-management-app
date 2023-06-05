@@ -7,7 +7,7 @@ import TaskDetails from '../Popup/TaskDetails';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 
 
-const Board = ({ isLoading }) => {
+const Board = () => {
 
     const boards = useStoreState(state => state.boards);
     const selectedBoard = useStoreState(state => state.selectedBoard);
@@ -18,8 +18,7 @@ const Board = ({ isLoading }) => {
 
     return (
         <>
-            {isLoading && <p>Chargement en cours..</p>}
-            {!isLoading && boards &&
+            {boards &&
                 <>
                     <Header />
                     <main className='main-container'>

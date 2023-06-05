@@ -14,6 +14,7 @@ const Checkbox = ({ label, checked, updateState, id }) => {
                     checked={isChecked}
                     onChange={() => {
                         setIsChecked(!isChecked)
+                        updateState({ id, completed: !isChecked, label });
                     }} />
                 <span className='checkmark'></span>
             </label>

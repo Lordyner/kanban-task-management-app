@@ -11,6 +11,7 @@ const Task = ({ task }) => {
 
     return (
         <StyleTask key={task.id} onClick={() => {
+            console.log("toto");
             setPopupOpen(!popupOpen);
             setBackgroundFilter(!backgroundFilter);
             setSelectedTask(task);
@@ -18,7 +19,7 @@ const Task = ({ task }) => {
 
             <div className='task-content' key={task.id} >
                 <span className='task-title'>{task.title}</span>
-                <span>{task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length} subtasks</span>
+                <span>{task.subtasks.filter(subtask => subtask.completed).length} of {task.subtasks.length} subtasks</span>
             </div>
 
         </StyleTask>

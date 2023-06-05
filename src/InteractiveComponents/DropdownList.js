@@ -1,10 +1,14 @@
 import React from 'react';
+import { StyledDropdownList } from '../components/styled/DropdownList.styled';
 
 const DropdownList = () => {
     return (
-        <select>
-            <option>Test</option>
-        </select>
+        <>
+            <StyledDropdownList>
+                <option>Toto</option>
+            </StyledDropdownList>
+        </>
+
     );
 };
 

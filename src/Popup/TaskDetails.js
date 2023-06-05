@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TaskDetailsStyle } from '../components/styled/TaskDetails.styled';
 import verticalElipsis from '../images/icon-vertical-ellipsis.svg';
 import Subtask from '../components/Subtask';
+import DropdownList from '../InteractiveComponents/DropdownList';
 
 const TaskDetails = ({ task }) => {
 
@@ -16,13 +17,17 @@ const TaskDetails = ({ task }) => {
             </div>
             {task.subtasks &&
                 <span className='subtasks-title'>
-                    Subtasks ({task.subtasks.filter(subtask => subtask.isCompleted).length} of {task.subtasks.length})
+                    Subtasks ({task.subtasks.filter(subtask => subtask.completed).length} of {task.subtasks.length})
                 </span>
             }
 
             {task.subtasks && task.subtasks.map((subtask, index) => {
                 return (<Subtask subtask={subtask} key={subtask.title} />)
             })}
+            <span className='subtasks-title'>
+                Current status
+            </span>
+            <DropdownList />
 
         </TaskDetailsStyle>
 

@@ -12,14 +12,12 @@ const useAxiosFetch = (dataUrl) => {
         const source = axios.CancelToken.source();
 
         const fetchData = async (url) => {
-            console.log("heho");
             setIsLoading(true);
             try {
                 const response = await axios.get(url, {
                     cancelToken: source.token
                 });
                 if (isMounted) {
-                    console.log(response.data);
                     setData(response.data);
                     setFetchError(null)
                 }
@@ -36,7 +34,6 @@ const useAxiosFetch = (dataUrl) => {
         fetchData(dataUrl);
 
         const cleanUp = () => {
-            console.log('cleanUp function');
             isMounted = false;
             source.cancel();
         }
