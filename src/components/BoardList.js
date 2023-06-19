@@ -7,16 +7,14 @@ import { useStoreState } from 'easy-peasy';
 
 const BoardList = () => {
 
-    const boards = useStoreState(state => state.bords);
-
+    const boards = useStoreState(state => state.boards);
     return (
 
         <StyledBoardList>
-
-            {boards && <>
-                <span className='d-block title-board-list body-m'>ALL BOARDS ({boards.length})</span>
+            <>
+                <span className='d-block title-board-list body-m'>ALL BOARDS ({boards && boards.length})</span>
                 <div className="board-list-content">
-                    {boards.map((board, index) => {
+                    {boards && boards.map((board, index) => {
                         return (<BoardElement key={board.id} board={board} />)
                     })}
                     <div className='board-element create-new-board heading-m'>
@@ -26,7 +24,7 @@ const BoardList = () => {
                     <ThemeSwitch />
                 </div>
             </>
-            }
+
         </StyledBoardList>
 
     );

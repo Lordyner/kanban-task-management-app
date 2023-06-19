@@ -42,8 +42,13 @@ export default createStore({
                 responseType: 'json',
                 withCredentials: true
             });
-            actions.setBoards(response.data);
+            console.log(response);
+            console.log(response.data);
+            const theBoards = response.data.map(board => board);
+
+            actions.setBoards(theBoards);
             actions.setSelectedBoard(response.data[0]);
+
         } catch (err) {
             if (err.code === "ERR_NETWORK") {
                 console.log('An error occured')
@@ -63,7 +68,35 @@ export default createStore({
                 description: selectedTask.description,
                 status: selectedTask.status,
                 subtasks: selectedTask.subtasks,
+                columnId: selectedTask.columnId
 
+            })
+            if (response?.status !== 204 || response?.status !== 200) {
+                //TODO send error
+
+            }
+        } catch (err) {
+            console.log(err);
+        } finally {
+            console.log("task updated");
+        }
+    }),
+
+    updateBoard: thunk(async (actions, payload, helpers) => {
+        try {
+            const { selectedBoard } = helpers.getState();
+            const { selectedTask } = helpers.getState();
+
+            const response = await axiosPrivate.patch('/boards/board', {
+                id: selectedBoard.id,
+                name: selectedBoard.name,
+                columns: selectedBoard.columns.map(column => {
+                    return {
+                        id: column.id,
+                        name: column.name,
+                        task: column.tasks.map(task => task.id === selectedTask.id)
+                    }
+                })
             })
             if (response?.status !== 204 || response?.status !== 200) {
                 //TODO send error

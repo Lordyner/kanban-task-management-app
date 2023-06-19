@@ -11,7 +11,6 @@ const Task = ({ task }) => {
 
     return (
         <StyleTask key={task.id} onClick={() => {
-            console.log("toto");
             setPopupOpen(!popupOpen);
             setBackgroundFilter(!backgroundFilter);
             setSelectedTask(task);

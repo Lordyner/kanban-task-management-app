@@ -6,7 +6,6 @@ import Column from './Column';
 import TaskDetails from '../Popup/TaskDetails';
 import { useStoreActions, useStoreState } from 'easy-peasy';
 
-
 const Board = () => {
 
     const boards = useStoreState(state => state.boards);
@@ -39,9 +38,9 @@ const Board = () => {
                     </main>
                     {/* Pop-up */}
                     <div className={popupOpen ? 'full-dark-filter' : ''} onClick={() => {
-                        // Si la popup est ouverte on enregistre ce qui a été changé
+                        // Save changes at popup closing
                         if (popupOpen) updateTask();
-                        setPopupOpen(!popupOpen)
+                        setPopupOpen(!popupOpen);
 
                     }}>
                         <div className={popupOpen ? 'popup-task' : 'popup-task hidden'} onClick={(e) => e.stopPropagation()}>

@@ -19,16 +19,16 @@ const MobileBoardList = () => {
                 setBackgroundFilter(!backgroundFilter);
                 setBoardListOpened(!boardListOpened);
             }}>
-
+                {/* Si un board a été selectionné, on affiche son nom */}
                 {selectedBoard && <label className='heading-l'>{selectedBoard.name}</label>}
-
+                {/* Sinon on affiche un message par défaut */}
+                {Object.keys(selectedBoard).length === 0 && <label className='heading-l'>No board</label>}
                 {boardListOpened ? <img src={chevronUp} alt='' /> : <img src={chevronDown} alt='' />}
             </div>
             <div className={boardListOpened ? 'dark-filter' : ''}>
                 <div className={boardListOpened ? 'popup-board-list' : 'popup-board-list hidden'}>
                     <BoardList />
                 </div>
-
             </div>
         </StyleMobileBoardList>
     );

@@ -2,9 +2,14 @@ import React from 'react';
 import { TaskDetailsStyle } from '../components/styled/TaskDetails.styled';
 import verticalElipsis from '../images/icon-vertical-ellipsis.svg';
 import Subtask from '../components/Subtask';
-import DropdownList from '../InteractiveComponents/DropdownList';
+import DropdownListStatus from '../InteractiveComponents/DropdownListStatus';
+import { useStoreActions, useStoreState } from 'easy-peasy';
 
 const TaskDetails = ({ task }) => {
+
+    const selectedBoard = useStoreState(state => state.selectedBoard);
+
+    const setSelectedTask = useStoreActions(actions => actions.setSelectedTask);
 
     return (
         <TaskDetailsStyle>
@@ -27,7 +32,7 @@ const TaskDetails = ({ task }) => {
             <span className='subtasks-title'>
                 Current status
             </span>
-            <DropdownList />
+            <DropdownListStatus columns={selectedBoard.columns} />
 
         </TaskDetailsStyle>
 
