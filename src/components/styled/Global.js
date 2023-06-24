@@ -55,6 +55,7 @@ body {
   min-height: 560px;
   position: absolute;
   top: 5rem;
+  right: 14rem;
   border-radius: 8px;
   padding: 1.5rem;
   transition: display 10.3s;

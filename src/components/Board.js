@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Header from './Header';
 import Button from '../InteractiveComponents/Button';
 import addTaskIcon from '../images/icon-add-task-mobile.svg';
@@ -14,7 +14,6 @@ const Board = () => {
     const popupOpen = useStoreState(state => state.popupOpen);
     const setPopupOpen = useStoreActions(actions => actions.setPopupOpen);
     const updateTask = useStoreActions(actions => actions.updateTask);
-
     return (
         <>
             {boards &&
@@ -36,16 +35,18 @@ const Board = () => {
                         }
 
                     </main>
-                    {/* Pop-up */}
+
+                    {/* Dark-filter */}
                     <div className={popupOpen ? 'full-dark-filter' : ''} onClick={() => {
                         // Save changes at popup closing
                         if (popupOpen) updateTask();
                         setPopupOpen(!popupOpen);
-
                     }}>
-                        <div className={popupOpen ? 'popup-task' : 'popup-task hidden'} onClick={(e) => e.stopPropagation()}>
-                            {selectedTask && <TaskDetails task={selectedTask} />}
-                        </div>
+                    </div>
+
+                    {/* Popup task */}
+                    <div className={popupOpen ? 'popup-task' : 'popup-task hidden'} onClick={(e) => e.stopPropagation()}>
+                        {selectedTask && <TaskDetails task={selectedTask} />}
                     </div>
                 </>
             }

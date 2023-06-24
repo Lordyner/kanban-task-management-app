@@ -8,6 +8,7 @@ import { useStoreActions, useStoreState } from 'easy-peasy';
 const TaskDetails = ({ task }) => {
 
     const selectedBoard = useStoreState(state => state.selectedBoard);
+    const selectedTask = useStoreState(state => state.selectedTask);
 
     const setSelectedTask = useStoreActions(actions => actions.setSelectedTask);
 
@@ -22,11 +23,11 @@ const TaskDetails = ({ task }) => {
             </div>
             {task.subtasks &&
                 <span className='subtasks-title'>
-                    Subtasks ({task.subtasks.filter(subtask => subtask.completed).length} of {task.subtasks.length})
+                    Subtasks ({selectedTask.subtasks.filter(subtask => subtask.completed).length} of {selectedTask.subtasks.length})
                 </span>
             }
 
-            {task.subtasks && task.subtasks.map((subtask, index) => {
+            {selectedTask.subtasks && selectedTask.subtasks.map((subtask, index) => {
                 return (<Subtask subtask={subtask} key={subtask.title} />)
             })}
             <span className='subtasks-title'>

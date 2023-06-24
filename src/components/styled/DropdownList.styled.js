@@ -45,5 +45,7 @@ export const StyledDropdownList = styled.label`
         -moz-appearance:none;
         appearance:none;
         cursor:pointer;
+        background-color: ${({ theme }) => theme.colors.secondary};
+        color: ${({ theme }) => theme.text};
     }
 `;
